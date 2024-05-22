@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Documentation</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>Documentación de React</header>
+      <ul>
+        <li>
+          <a class="nav-link" href="#Componentes">
+            Componentes</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#JSX">JSX</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#Ciclo_de_vida_de_los_componentes"
+            >Ciclo de vida de los componentes</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#Estados_y_props">Estados y props</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#Eventos">Eventos</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#Renderizado_condicional"
+            >Renderizado condicional</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#Hooks"
+            >Hooks</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#React_Router"
+            >React Router</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#Redux"
+            >Redux</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#Renderizado_en_el_servidor"
+            >Renderizado en el servidor</a
+          >
+        </li>
+        <li>
+          <a class="nav-link" href="#Referencia">Referencia</a>
+        </li>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <section class="main-section" id="Componentes">
+        <header>Componentes</header>
+        <article>
+          <p>
+            En React, toda la interfaz de usuario se construye a partir de
+            componentes reutilizables. Un componente es una pieza encapsulada de
+            código que combina la lógica y la interfaz de usuario en una sola
+            unidad.
+          </p>
+          <p>
+            Los componentes pueden ser componentes de clase (class components) o
+            componentes funcionales (functional components). La arquitectura
+            basada en componentes promueve la reutilización de código, la
+            modularidad y la facilidad de mantenimiento.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="JSX">
+        <header>JSX</header>
+        <article>
+          <p>
+            JSX es una extensión de sintaxis para JavaScript que permite
+            escribir código similar a HTML dentro de archivos de JavaScript.
+            Esto facilita la creación de componentes de React, ya que combina la
+            estructura de la interfaz de usuario con la lógica de JavaScript en
+            un solo lugar.
+          </p>
+          <p>
+            JSX se compila en llamadas a funciones de React que crean elementos
+            virtuales del DOM, los cuales se actualizan de manera eficiente en
+            el DOM real.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Ciclo_de_vida_de_los_componentes">
+        <header>Ciclo de vida de los componentes</header>
+        <article>
+          <p>
+            Los componentes de clase en React tienen métodos de ciclo de vida
+            que se ejecutan en momentos específicos durante el proceso de
+            renderizado y actualización. Estos métodos incluyen:
+            <code>componentDidMount</code> Se ejecuta después de que el
+            componente se monta en el DOM. <code>componentDidUpdate</code> Se
+            ejecuta después de que se actualiza el componente.
+            <code>componentWillUnmount</code> Se ejecuta antes de que se
+            desmonte el componente y otros.
+          </p>
+          <p>
+            Estos métodos permiten realizar acciones adicionales, como obtener
+            datos de una API, suscribirse a eventos o limpiar recursos cuando
+            sea necesario.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Estados_y_props">
+        <header>Estados y props</header>
+        <article>
+          <p>
+            Los componentes de React pueden tener un estado interno (state) y
+            recibir datos de otros componentes a través de propiedades (props).
+            El estado es un objeto JavaScript que representa los datos que
+            pueden cambiar a lo largo del ciclo de vida del componente. Las
+            props son datos inmutables que se pasan desde un componente padre a
+            un componente hijo.
+          </p>
+          <p>
+            Cuando el estado o las props cambian, React actualiza de manera
+            eficiente solo las partes de la interfaz de usuario que necesitan
+            ser renderizadas nuevamente.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Eventos">
+        <header>Eventos</header>
+        <article>
+          <p>
+            En React, los eventos se manejan de manera similar a los eventos de
+            JavaScript estándar, pero con una sintaxis ligeramente diferente.
+            Los eventos se definen como funciones dentro de los componentes y se
+            asignan a los elementos de la interfaz de usuario utilizando la
+            sintaxis <code>onClick </code> <code>onChange </code> <code>onSubmit, etc.</code>
+          </p>
+          <p>
+            React utiliza un sistema de eventos sintéticos que garantiza un
+            comportamiento consistente en diferentes navegadores.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Renderizado_condicional">
+        <header>Renderizado condicional</header>
+        <article>
+          <p>
+            El renderizado condicional permite mostrar u ocultar partes de la
+            interfaz de usuario según ciertas condiciones. Esto se puede lograr
+            utilizando declaraciones condicionales (if, else), operadores
+            ternarios u operadores lógicos en el JSX.
+          </p>
+          <p>
+            Además, React proporciona técnicas como el renderizado de listas y
+            el renderizado de componentes anidados, lo que permite crear
+            interfaces de usuario dinámicas y adaptables.
+          </p>
+        </article>
+      </section>
+      <section
+        class="main-section"
+        id="Hooks"
+      >
+        <header>Hooks</header>
+        <article>
+          <p>
+            Los Hooks son funciones especiales que permiten usar características
+            de React (como el estado y el ciclo de vida) en componentes
+            funcionales. Algunos de los Hooks más comunes son:
+            <ul>
+                <li>useState: Para manejar el estado</li>
+                <li>useEffect: Para reemplazar los métodos de ciclo de vida</li>
+                <li>useContext: Para acceder al contexto de React</li>
+                <li>useReducer: Para manejar estados complejos.</li>
+            </ul>
+          </p>
+          <p>
+            Los Hooks promueven la reutilización de lógica y facilitan la
+            creación de componentes funcionales más complejos.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="React_Router">
+        <header>React Router</header>
+        <article>
+          <p>
+            React Router es una biblioteca de enrutamiento que permite manejar
+            las rutas en una aplicación React de manera declarativa. Permite
+            definir rutas y asociarlas con componentes específicos, lo que
+            facilita la creación de aplicaciones de una sola página (SPA) con
+            una navegación fluida.
+          </p>
+          <p>
+            React Router proporciona componentes como:
+            <ul>
+              <li>Router: Para configurar y manejar la navegación.</li>
+              <li>Link: Para crear enlaces de navegación. </li>
+              <li> Switch: Para controlar la navegación. </li>
+              <li> Route: Para renderizar los componentes correspondientes. </li>
+            </ul>
+          </p>
+          <p>
+            Para controlar la navegación y renderizar los componentes correspondientes según la
+            URL actual.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Redux">
+        <header>Redux</header>
+        <article>
+          <p>
+            Redux y la Context API son soluciones para el manejo del estado
+            global en aplicaciones complejas de React. Redux es una biblioteca
+            externa que implementa un patrón de arquitectura llamado Flux, lo
+            que facilita la gestión del estado de manera predecible y
+            centralizada.
+          </p>
+          <p>
+            La Context API, por otro lado, es una característica incorporada en
+            React que permite compartir datos entre componentes sin tener que
+            pasar props manualmente a través de la jerarquía de componentes.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Renderizado_en_el_servidor">
+        <header>Renderizado en el servidor</header>
+        <article>
+          <p>
+            El renderizado en el servidor (SSR) es una técnica que permite
+            renderizar los componentes de React en el servidor y enviar el HTML
+            renderizado al cliente.
+          </p>
+          <p>
+            Esto mejora el rendimiento y la experiencia del usuario, ya que el
+            contenido se muestra más rápidamente y los motores de búsqueda
+            pueden indexar mejor el contenido. El SSR puede lograrse mediante
+            frameworks como Next.js o soluciones personalizadas que utilizan
+            Node.js en el servidor.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Referencia">
+        <header>Referencia</header>
+        <article>
+          <ul>
+            <li>
+              Toda la documentación presente en esta pagina fue tomada de
+              <a href="https://es.react.dev/reference/react" target="_blank"
+                >React Reference Overview</a
+              >
+            </li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

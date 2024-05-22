@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 id="title">Survey Form</h1>
+    <p id="description">Thank you for taking the time to help us</p>
+    <form id="survey-form">
+      <fieldset>
+        <label for="name" id="name-label">Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required />
+        <label for="email" id="email-label">Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+          required
+        />
+        <label for="number" id="number-label">Age</label>
+        <input type="number" id="number" placeholder="Age" min="1" max="99" />
+      </fieldset>
+      <fieldset>
+      <label for="dropdown"
+        >Which option best describes your current role?</label
+      >
+      <select id="dropdown">
+        <option disabled>Select an option</option>
+        <option value="student">Student</option>
+        <option value="job">Full Time Job</option>
+        <option value="learner">Full Time Learner</option>
+        <option value="preferNo">Prefer not to say</option>
+        <option value="other">Other</option>
+      </select>
+    </fieldset>
+      <fieldset>
+      <p>Would you recommend freeCodeCamp to a friend?</p>
+      <input type="radio" id="definitely" name="recommend" value="definitely" />
+      <label for="definitely">Definitely</label>
+      <input type="radio" id="maybe" name="recommend" value="maybe" />
+      <label for="maybe">Maybe</label>
+      <input type="radio" id="not-sure" name="recommend" value="not-sure" />
+      <label for="not-sure">Not sure</label>
+    </fieldset>
+    <fieldset>
+      <p>What is your favorite feature of freeCodeCamp?</p>
+      <input
+        type="checkbox"
+        id="challenges"
+        name="challenges"
+        value="challenges"
+      />
+      <label for="challenges">Challenges</label>
+      <input type="checkbox" id="projects" name="projects" value="projects" />
+      <label for="projects">Projects</label>
+      <input
+        type="checkbox"
+        id="community"
+        name="community"
+        value="community"
+      />
+      <label for="community">Community</label>
+      <input
+        type="checkbox"
+        id="openSource"
+        name="openSource"
+        value="openSource"
+      />
+      <label for="openSource">Open Source</label>
+    </fieldset>
+      <fieldset>
+      <p>Any comments or suggestions?</p>
+      <textarea
+        id="comments"
+        name="comments"
+        placeholder="Enter your comment here..."
+      ></textarea>
+    </fieldset>
+      <input type="submit" id="submit" value="Submit" />
+    </form>
+  </body>
+</html>
