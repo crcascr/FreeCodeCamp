@@ -1,10 +1,10 @@
-# Review of DOM Manipulation by Building a Rock, Paper, Scissors Game
+# Form Validation by Building a Calorie Counter
 
 ## Description
 
-In the previous projects you learned how to work with basic DOM manipulation. Now it is time to review what you have learned by building a Rock, Paper, Scissors game.
+Sometimes when you're coding a web application, you'll need to be able to accept input from a user. In this calorie counter project, you'll learn how to validate user input, perform calculations based on that input, and dynamically update your interface to display the results.
 
-In this mini project, you will review conditionals, functions, `getElementBy`, and more. This project will give you an opportunity to solve small problems and get a better understanding of the basics.
+In this practice project, you'll learn basic regular expressions, template literals, the `addEventListener` method, and more.
 
 ## Acknowledgments
 

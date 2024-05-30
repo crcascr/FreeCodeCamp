@@ -1,10 +1,10 @@
-# Basic String and Array Methods by Building a Music Player
+# Review of DOM Manipulation by Building a Rock, Paper, Scissors Game
 
 ## Description
 
-Now let's learn some essential string and array methods like the `find()`, `forEach()`, `map()` and `join()`. These methods are crucial for developing dynamic web applications.
+In the previous projects you learned how to work with basic DOM manipulation. Now it is time to review what you have learned by building a Rock, Paper, Scissors game.
 
-In this project, you'll code a basic MP3 player using HTML, CSS, and JavaScript. The project covers fundamental concepts such as handling audio playback, managing a playlist, implementing play, pause, next, previous, and shuffle functionalities. You'll even learn how to dynamically update your user interface based on the current song.
+In this mini project, you will review conditionals, functions, `getElementBy`, and more. This project will give you an opportunity to solve small problems and get a better understanding of the basics.
 
 ## Acknowledgments
 

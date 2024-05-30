@@ -1,64 +1,129 @@
-function getRandomComputerResult() {
-  const options = ["rock", "paper", "scissors"];
-  const randomIndex = Math.floor(Math.random() * 3);
-  return options[randomIndex];
+const calorieCounter = document.getElementById("calorie-counter");
+const budgetNumberInput = document.getElementById("budget");
+const entryDropdown = document.getElementById("entry-dropdown");
+const addEntryButton = document.getElementById("add-entry");
+const clearButton = document.getElementById("clear");
+const output = document.getElementById("output");
+
+let isError = false;
+
+function cleanInputString(str) {
+  const regex = /[+-\s]/g;
+  return str.replace(regex, "");
 }
 
-let playerScore = 0;
-let computerScore = 0;
+function isInvalidInput(str) {
+  const regex = /\d+e\d+/i;
+  return str.match(regex);
+}
 
-function hasPlayerWonTheRound(player, computer) {
-  return (
-    (player === "Rock" && computer === "Scissors") ||
-    (player === "Paper" && computer === "Rock") ||
-    (player === "Scissors" && computer === "Paper")
+function addEntry() {
+  const targetInputContainer = document.querySelector(
+    `#${entryDropdown.value} .input-container`
   );
+
+  const entryNumber =
+    targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
+
+  const HTMLString = `
+    <label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>
+    <input type="text" id="${entryDropdown.value}-${entryNumber}-name" placeholder="Name"/>
+    <label for="${entryDropdown.value}-${entryNumber}-calories">Entry ${entryNumber} Calories</label>
+    <input type="number" id="${entryDropdown.value}-${entryNumber}-calories" placeholder="Calories" min="0" />
+  `;
+
+  targetInputContainer.insertAdjacentHTML("beforeend", HTMLString);
 }
 
-function getRoundResults(userOption) {
-  const computerResult = getRandomComputerResult();
-  const userResult = hasPlayerWonTheRound(userOption, computerResult);
+function calculateCalories(e) {
+  e.preventDefault();
+  isError = false;
+  const breakfastNumberInputs = document.querySelectorAll(
+    "#breakfast input[type=number]"
+  );
+  const lunchNumberInputs = document.querySelectorAll(
+    "#lunch input[type=number]"
+  );
+  const dinnerNumberInputs = document.querySelectorAll(
+    "#dinner input[type=number]"
+  );
+  const snacksNumberInputs = document.querySelectorAll(
+    "#snacks input[type=number]"
+  );
+  const exerciseNumberInputs = document.querySelectorAll(
+    "#exercise input[type=number]"
+  );
 
-  if (userResult) {
-    playerScore++;
-    return `Player wins! ${userOption} beats ${computerResult}`;
-  } else if (userOption !== computerResult) {
-    computerScore++;
-    return `Computer wins! ${computerResult} beats ${userOption}`;
-  } else {
-    return `It's a tie! Both chose ${userOption}`;
+  const breakfastCalories = getCaloriesFromInputs(breakfastNumberInputs);
+  const lunchCalories = getCaloriesFromInputs(lunchNumberInputs);
+  const dinnerCalories = getCaloriesFromInputs(dinnerNumberInputs);
+  const snacksCalories = getCaloriesFromInputs(snacksNumberInputs);
+  const exerciseCalories = getCaloriesFromInputs(exerciseNumberInputs);
+
+  const budgetCalories = getCaloriesFromInputs([budgetNumberInput]);
+
+  if (isError) {
+    return;
   }
+
+  const consumedCalories =
+    breakfastCalories +
+    lunchCalories +
+    dinnerCalories +
+    snacksCalories +
+    exerciseCalories;
+
+  const remainingCalories =
+    budgetCalories - consumedCalories + exerciseCalories;
+
+  const surplusOrDeficit = remainingCalories < 0 ? "Surplus" : "Deficit";
+
+  output.innerHTML = `
+    <span class="${surplusOrDeficit.toLowerCase()}">${Math.abs(
+    remainingCalories
+  )} Calorie ${surplusOrDeficit}</span>
+    <hr/>
+    <p>${budgetCalories} Calories Budgeted</p>
+    <p>${consumedCalories} Calories Consumed</p>
+    <p>${exerciseCalories} Calories Burned</p>
+  `;
+  output.classList.remove("hide");
 }
 
-const playerScoreSpanElement = document.getElementById("player-score");
-const computerScoreSpanElement = document.getElementById("computer-score");
-const roundResultsMsg = document.getElementById("results-msg");
-const winnerMsgElement = document.getElementById("winner-msg");
-const optionsContainer = document.querySelector(".options-container");
-const resetGameBtn = document.getElementById("reset-game-btn");
+function getCaloriesFromInputs(list) {
+  let calories = 0;
+  for (const item of list) {
+    const currVal = cleanInputString(item.value);
+    const invalidInputMatch = isInvalidInput(currVal);
 
-function showResults(userOption) {
-  const roundResults = getRoundResults(userOption);
-  roundResultsMsg.innerText = roundResults;
-  playerScoreSpanElement.innerText = playerScore;
-  computerScoreSpanElement.innerText = computerScore;
+    if (invalidInputMatch) {
+      alert(`Invalid Input: ${invalidInputMatch[0]}`);
+      isError = true;
+      return null;
+    }
 
-  if (playerScore === 3 || computerScore === 3) {
-    winnerMsgElement.innerText = `${
-      playerScore === 3 ? "Player" : "Computer"
-    } has won the game!`;
-    resetGameBtn.style.display = "block";
-    optionsContainer.style.display = "none";
+    calories += Number(currVal);
   }
+
+  return calories;
 }
 
-function resetGame() {
-  playerScore = 0;
-  computerScore = 0;
-  roundResultsMsg.innerText = "";
-  winnerMsgElement.innerText = "";
-  resetGameBtn.style.display = "none";
-  optionsContainer.style.display = "flex";
-  playerScoreSpanElement.innerText = playerScore;
-  computerScoreSpanElement.innerText = computerScore;
+function clearForm() {
+  const inputContainers = Array.from(
+    document.querySelectorAll(".input-container")
+  );
+
+  for (const container of inputContainers) {
+    container.innerHTML = "";
+  }
+
+  budgetNumberInput.value = "";
+  output.innerText = "";
+  output.classList.add("hide");
 }
+
+addEntryButton.addEventListener("click", addEntry);
+
+calorieCounter.addEventListener("submit", calculateCalories);
+
+clearButton.addEventListener("click", clearForm);
