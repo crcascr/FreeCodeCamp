@@ -1,16 +1,16 @@
-# JavaScript Algorithms and Data Structures Certificate
+# Palindrome Checker
 
 ## Overview
 
-Developers use HTML and CSS to control the content and styling of a page. And they use JavaScript to make that page interactive.
+This is the first required project for the JavaScript Algorithms and Data Structures Certification.
 
-In this JavaScript Algorithm and Data Structures Certification, you'll learn the JavaScript fundamentals like variables, arrays, objects, loops, functions, the DOM and more.
-
-You'll also learn about Object Oriented Programming (OOP), Functional Programming, algorithmic thinking, how to work with local storage, and how to fetch data using an API.
+For this project, you'll build and application that ckecks whether a given word is a palindrome.
 
 ## Acknowledgments
 
-This certificate was created by [freeCodeCamp.](https://www.freecodecamp.org/learn/learn-javascript-algorithms-and-data-structures)
+- This project was based on the [freeCodeCamp palindrome checker example.](https://palindrome-checker.freecodecamp.rocks/)
+
+- This project is part of the [freeCodeCamp Responsive Web Design certificate.](https://www.freecodecamp.org/learn/2022/responsive-web-design/)
 
 ## Contributing
 
