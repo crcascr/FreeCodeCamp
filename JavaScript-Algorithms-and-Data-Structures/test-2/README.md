@@ -1,14 +1,14 @@
-# Palindrome Checker
+# Roman Numeral Converter
 
 ## Description
 
-This is the first required project to earn the JavaScript Algorithms and Data Structures certification.
+This is the second required project to earn the JavaScript Algorithms and Data Structures certification.
 
-For this project, you'll build an application that checkes wheather a gien word is a palindrome.
+For this project, you'll build an application that converts integers to Roman numerals.
 
 ## Acknowledgments
 
-- This project was based on the [freeCodeCamp palindrome checker example.](https://palindrome-checker.freecodecamp.rocks/)
+- This project was based on the [freeCodeCamp Roman Numeral Converter example.](https://roman-numeral-converter.freecodecamp.rocks/)
 
 - This project is part of the [freeCodeCamp JavaScript Algorithms and Data Structures certificate.](https://www.freecodecamp.org/learn/learn-javascript-algorithms-and-data-structures)
 
